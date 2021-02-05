@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_05_133146) do
+ActiveRecord::Schema.define(version: 2021_02_05_133736) do
 
   create_table "homeworks", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "operations_homeworks", force: :cascade do |t|
+    t.string "type"
+    t.integer "homework_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["homework_id"], name: "index_operations_homeworks_on_homework_id"
   end
 
 end

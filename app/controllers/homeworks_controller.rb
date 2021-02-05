@@ -45,6 +45,12 @@ class HomeworksController < ApplicationController
     redirect_to homeworks_url, notice: 'Homework was successfully destroyed.'
   end
 
+  def submit
+    @homework = Homework.find(params[:homework_id])
+    @homework.submit
+    redirect_to homeworks_url, notice: 'Homework was successfully submitted.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_homework
